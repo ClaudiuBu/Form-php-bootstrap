@@ -66,21 +66,22 @@ if (filter_has_var(INPUT_POST, 'submit')) {
 
             <div class="form-group">
                 <label for="name">Name:</label>
-                <input type="text" name="name" id="name" class="form-control">
+                <input type="text" name="name" id="name" class="form-control" value="<?php echo isset($_POST['name']) ? $name : ''; ?>">
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="text" name="email" id="email" class="form-control">
+                <input type="text" name="email" id="email" class="form-control"value="<?php echo isset($_POST['email']) ? $email : ''; ?>">
             </div>
 
             <div class="form-group">
                 <label for="">Message:</label>
-                <textarea name="message" id="message" class="form-control"></textarea>
+                <textarea name="message" id="message" class="form-control"><?php echo isset($_POST['message']) ? $message : '' ?></textarea>
             </div>
 
             <input type="submit" name="submit" class="btn btn-danger">
 
         </form>
+        <br>
         <?php if ($msg != '') : ?>
             <div class="alert <?php echo $msgClass; ?>">
                 <p><?php echo $msg; ?></p>
